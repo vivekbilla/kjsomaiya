@@ -1,0 +1,404 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Add Event DepAct
+	</title>
+	<link rel="icon" type="image/png" href="{% static 'kj.png' %}">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style type="text/css">
+		body{
+			margin: 0px;
+			background-color: #3AAFA9;
+		}
+		.headd{
+			margin-top: 0px;
+			padding: 10px;
+			background-color: white;
+			text-decoration-color: #17252A;
+			font-family: Arial;
+			font-size: 3vw;
+		}
+		.leftbar{
+			float: left;
+			top: 0;
+			bottom: 0;
+			position: fixed;
+			/*padding-right: 40px;*/
+			/*padding: 0px 10px;*/
+			background-color: #2B7A78;
+			/*border-right: 1px solid black;*/
+		}
+		#hd{
+			font-size: 2.5vw;
+			padding-left: 20px;
+			color: white;
+			margin-bottom: 20px;
+			padding-bottom: 12px;
+			padding-top: 10px;
+		}
+		.listt{
+			list-style-type: disc;
+		}
+		.lis{
+			list-style: none;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			width: 100%;
+			box-sizing: border-box;
+		}
+		.navlinks{
+			text-decoration: none;
+			font-family: Arial, Helvetica;
+		}
+		.spl{
+			text-decoration: none;
+			color: white;
+			background-color: #17252A;
+			box-sizing: border-box;
+			padding: 20px 30px;
+			/*border-radius: 28px;*/
+			/*margin-top: 5px;*/
+			border-bottom: 1px solid #2B7A78;
+		}
+		.sp{
+			text-decoration: none;
+		}
+		.spl:hover{
+			background-color: #A2D8D5;
+			color: black;
+		}
+		#current{
+			background-color: #3AAFA9;
+		}
+		#homeicon{
+			background-image: url({% static 'homeic.png' %});
+		}
+		.icc{
+			padding-right: 10px;
+		}
+		.but{
+			text-decoration: none;
+			outline: 0;
+			color: white;
+			border: none;
+			border-radius: 8px;
+			background-color: #17252A;
+			padding: 8px 16px;
+			box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+			
+		}
+		.but:hover{
+			background-color: #FFF;
+			text-decoration: none;
+			color: black;
+			box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+		}
+		#lgout{
+			position: fixed;
+			bottom: 10px;
+			right: 0px;
+		}
+		#butn:hover{
+			background-color: #FFF;
+			color: black;
+			box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+		}
+		#titlee{
+			margin-left: 200px;
+		}
+		.login{
+			float: left;
+			width: 82%;
+			background-color: #A2D8D5;
+			margin-right: 20px;
+			margin-left: 220px;
+			margin-top: 20px;
+			margin-bottom: 10px;
+			padding: 20px;
+		}
+		#evna{
+			width: 10%;
+		}
+		.in{
+			color: black;
+			background-color: #FFF;
+			border: 1px solid #A2A2A2;
+			outline: 0;
+			width: 25%;
+			padding: 5px;
+			border-radius: 8px;
+			box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 100px 0 rgba(0,0,0,0.19);
+		}
+		#evdein{
+			width: 85%;
+		}
+		#orgc{
+			width: 30%;
+		}
+		.lab{
+			width: 20%;
+		}
+		.onesec{
+			float: left;
+			margin-bottom: 10px;
+			width: 100%;
+			/*background-color: red;*/
+		}
+		.orggin{
+			width: 27.795%;
+			margin-right: 10px;
+			margin-left: 20px;
+		}
+		.conin{
+			width: 22.4%;
+			margin-left: 15px;
+		}
+		#comin{
+			width: 88%;
+			margin-bottom: 10px;
+		}
+		.leftonesec{
+			float: left;
+		}
+		.ind{
+			background-color: #FFF;
+			width: 25%;
+			outline: 0;
+			border: 1px solid #A2A2A2;
+			padding: 5px;
+			border-radius: 8px;
+			box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 100px 0 rgba(0,0,0,0.19);
+		}
+		.inc{
+			width: 20%;
+			background-color: #FFF;
+			border: 1px solid #A2A2A2;
+			outline: 0;
+			padding: 5px;
+			border-radius: 8px;
+			box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 100px 0 rgba(0,0,0,0.19);
+		}
+	</style>
+</head>
+<body>
+	<header class="headd">
+		<div>
+			<center><p id="titlee">Add Event</p></center>
+		</div>
+	</header>
+	<nav class="leftbar">
+		<div>
+			<h4 id="hd">DepAct</h4>
+		</div>
+		<div class="lis">
+			<a class="navlinks" href="kjsomaiyacollegeofengineeringandinformationtechnologyteachers-home">
+				<div class="spl">
+					<i class="glyphicon glyphicon-home icc"></i>
+					<span class="sp">Home</span>
+				</div>
+			</a>
+			<a class="navlinks" href="kjsomaiyacollegeofengineeringandinformationtechnologyteachers-allevents">
+				<div class="spl">
+					<i class="glyphicon glyphicon-th icc"></i>
+					<span class="sp">All Events</span>
+				</div>
+			</a>
+			<a class="navlinks" href="kjsomaiyacollegeofengineeringandinformationtechnologyteachers-upcomingevents">
+				<div class="spl">
+					<i class="glyphicon glyphicon-time icc"></i>
+					<span class="sp">Upcoming Events</span>
+				</div>
+			</a>
+			<a class="navlinks" href="kjsomaiyacollegeofengineeringandinformationtechnologyteachers-finishedevents">
+				<div class="spl">
+					<i class="glyphicon glyphicon-ok icc"></i>
+					<span class="sp">Finished Events</span>
+				</div>
+			</a>
+			<a class="navlinks" href="kjsomaiyacollegeofengineeringandinformationtechnologyteachers-addevent">
+				<div id="current" class="spl">
+					<i class="glyphicon glyphicon-plus icc"></i>
+					<span class="sp">Add Event</span>
+				</div>
+			</a>
+			<a class="navlinks" href="kjsomaiyacollegeofengineeringandinformationtechnologyteachers-profile">
+				<div class="spl">
+					<i class="glyphicon glyphicon-user icc"></i>
+					<span class="sp">Profile</span>
+				</div>
+			</a>
+			<a class="navlinks" href="kjsomaiyacollegeofengineeringandinformationtechnologyteachers-help">
+				<div class="spl">
+					<i class="glyphicon glyphicon-question-sign icc"></i>
+					<span class="sp">Help</span>
+				</div>
+			</a>
+		</div>
+	</nav>
+	
+	
+	<center>
+    	<div>
+    		{% if user.is_authenticated %}
+    		<form id="main" method="POST" enctype="multipart/for-data" class="login">
+    			{% csrf_token %}
+    			<div class="onesec">
+    				<label class="leftonesec" id="evna" class="lab">Event Name :</label>
+    				<input type="text" id="evnain" name="eventname" class="in" required/>
+    				<label id="orgc" class="lab">Organizing Committee/Department :</label>
+    				<input type="text" id="orgcin" name="eventcommittee" class="in" >
+    			</div>
+    			<div class="onesec">
+    				<label class="leftonesec" class="lab">Event Description :</label>
+    				<input type="text" id="evdein" name="eventdesc" class="in" >
+    			</div>
+    			<div class="onesec">
+    			</div>
+    			
+    			<div class="onesec">
+    				<label class="leftonesec" class="lab">Organizers :</label>
+    				<input type="text" id="org1in" name="eventorganizer1" class="in orggin" required/>
+    				<input type="text" id="org2in" name="eventorganizer2" class="in orggin" required/>
+    				<input type="text" id="org3in" name="eventorganizer3" class="in orggin">
+    			</div>
+    			<div class="onesec">
+    				<label class="leftonesec" class="lab">Conveners :</label>
+    				<input type="text" id="con1in" name="eventconvener1" class="in conin" required/>
+    				<input type="text" id="con2in" name="eventconvener2" class="in conin">
+    				<label class="lab">Department :</label>
+    				<input type="text" id="depin" name="eventdepartment" class="in conin" >
+    			</div>
+    			<div class="onesec">
+    				<label class="leftonesec" class="lab">Event Date :</label>
+    				<input type="datetime-local" id="evdain" name="eventdate" class="ind" required/>
+    				<select class="inc" id="carsin" name="eventfinished" required/>
+						<option value="True">Finished</option>
+						<option value="False">Not Finished</option>
+					</select>
+    				<label class="lab">Publish Date (Today's date) :</label>
+    				<input type="datetime-local" id="pdain" name="pubdate" class="ind" required/>
+    			</div>
+    			<div class="onesec">
+    				<label class="leftonesec" class="lab" > Comments : </label>
+    				<input id="comin" type="textarea" name="com" class="in">
+    			</div>
+    			<div>
+					<button id="butn" class="but">
+						Submit
+					</button>
+				</div>
+				<div>
+			    	<a href="homelogout" id="lgout" class="but">
+			    		Logout
+			    	</a>
+			    </div>
+    		</form>
+    		<!-- <form id="main" method="POST" enctype="multipart/for-data" class="login">
+    			{% csrf_token %}
+    			{{ form.media }}
+    			{{ form.as_p }}
+    			<div>
+    				<label class="lab">Event Name :</label>
+    				<input type="text" id="evna" name="etitle" class="in" required/>
+    				<label class="lab">Organizing Committee/Department :</label>
+    				<input type="text" id="orgc" name="edesc" class="in" required/>
+    			</div>
+    			<div>
+    				<label class="lab">Event Name :</label>
+    				<input type="file" id="evna" name="epost" class="in" required/>
+    				<label class="lab">Organizing Committee/Department :</label>
+    				<input type="Date" id="orgc" name="edate" class="in" required/>
+    			</div>
+    			<div>
+    				<label class="lab">Event Name :</label>
+    				<input type="text" id="evna" name="eorg" class="in" required/>
+    				<label class="lab">Organizing Committee/Department :</label>
+    				<input type="text" id="orgc" name="et1" class="in" required/>
+    			</div>
+    			<div>
+    				<label class="lab">Event Name :</label>
+    				<input type="text" id="evna" name="et2" class="in" required/>
+    				<label class="lab">Organizing Committee/Department :</label>
+    				<input type="text" id="orgc" name="et3" class="in" required/>
+    			</div>
+    			<div>
+    				<label class="lab">Event Name :</label>
+    				<input type="text" id="evna" name="ec1" class="in" required/>
+    				<label class="lab">Organizing Committee/Department :</label>
+    				<input type="text" id="orgc" name="ec2" class="in" required/>
+    			</div>
+    			<div>
+    				<label class="lab">Event Name :</label>
+    				<input type="text" id="evna" name="edep" class="in" >
+    				<select id="cars" name="efin">
+						<option value="True">Finished</option>
+						<option value="False">Not Finished</option>
+					</select>
+    			</div>
+    			<div>
+    				<label class="lab">Event Name :</label>
+    				<input type="Date" id="evna" name="epub" class="in" required/>
+    				<label class="lab">Organizing Committee/Department :</label>
+    				<input type="text" id="orgc" name="ecom" class="in" required/>
+    			</div>
+    			<div>
+					<button id="butn" class="but">
+						Submit
+					</button>
+				</div>
+    		</form> -->
+    		{% else %}
+    		<h1>Please Login</h1>
+    		<div>
+		    	<a href="kjsomaiyacollegeofengineeringandinformationtechnologyteachers-login" id="lgin" class="but">
+		    		Login
+		    	</a>
+		    </div>
+    		{% endif %}
+    	</div>
+    </center>
+    
+	<script type="text/javascript">
+		// var evna = document.getElementById('evna');
+		// var evde = document.getElementById('evde');
+		// var evda = document.getElementById('evda');
+		// var orgc = document.getElementById('orgc');
+		// var org1 = document.getElementById('org1');
+		// var org2 = document.getElementById('org2');
+		// var org3 = document.getElementById('org3');
+		// var con1 = document.getElementById('con1');
+		// var con2 = document.getElementById('con2');
+		// var fin = document.getElementById('fin');
+		// var dep = document.getElementById('dep');
+		// var img = document.getElementById('img');
+		
+		// function envalv(){
+		// 	evna = document.getElementById('evna').value;
+		// 	evde = document.getElementById('evde').value;
+		// 	evda = document.getElementById('evda').value;
+		// 	orgc = document.getElementById('orgc').value;
+		// 	org1 = document.getElementById('org1').value;
+		// 	org2 = document.getElementById('org2').value;
+		// 	org3 = document.getElementById('org3').value;
+		// 	con1 = document.getElementById('con1').value;
+		// 	con2 = document.getElementById('con2').value;
+			// fin = document.getElementById('fin').value;
+		// 	dep = document.getElementById('dep').value;
+		// 	img = document.getElementById('img').value;
+			// console.log(fin);
+		// 	console.log('kljd');
+		// 	if ((evna.length==0)||(evde.length==0)||(evda.length==0)||(orgc.length==0)||(org1.length==0)||(org2.length==0)||(org3.length==0)||(con1.length==0)||(con2.length==0)||(dep.length==0)||(img.length==0)) {
+		// 		window.alert('Please Enter Credentials properly');
+		// 	}
+		// 	else{
+		// 		console.log('nice');
+			// }
+			
+		// }
+
+	</script>
+</body>
+</html>

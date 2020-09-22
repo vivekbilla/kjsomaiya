@@ -1,0 +1,412 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Upcoming Events DepAct
+	</title>
+	<link rel="icon" type="image/png" href="{% static 'kj.png' %}">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style type="text/css">
+		body{
+			margin: 0px;
+			background-color: #3AAFA9;
+		}
+		.headd{
+			margin-top: 0px;
+			padding: 10px;
+			background-color: white;
+			text-decoration-color: #17252A;
+			font-family: Arial;
+			font-size: 3vw;
+		}
+		.leftbar{
+			float: left;
+			top: 0;
+			bottom: 0;
+			position: fixed;
+			/*padding-right: 40px;*/
+			/*padding: 0px 10px;*/
+			background-color: #2B7A78;
+			/*border-right: 1px solid black;*/
+		}
+		#hd{
+			font-size: 2.5vw;
+			padding-left: 20px;
+			color: white;
+			margin-bottom: 20px;
+			padding-bottom: 12px;
+			padding-top: 10px;
+		}
+		.listt{
+			list-style-type: disc;
+		}
+		.lis{
+			list-style: none;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			width: 100%;
+			box-sizing: border-box;
+		}
+		.navlinks{
+			text-decoration: none;
+			font-family: Arial, Helvetica;
+		}
+		.spl{
+			text-decoration: none;
+			color: white;
+			background-color: #17252A;
+			box-sizing: border-box;
+			padding: 20px 30px;
+			/*border-radius: 28px;*/
+			/*margin-top: 5px;*/
+			border-bottom: 1px solid #2B7A78;
+		}
+		.sp{
+			text-decoration: none;
+		}
+		.spl:hover{
+			text-decoration: none;
+			background-color: #A2D8D5;
+			color: black;
+		}
+		#current{
+			background-color: #3AAFA9;
+		}
+		#homeicon{
+			background-image: url({% static 'homeic.png' %});
+		}
+		.icc{
+			padding-right: 10px;
+		}
+		.but{
+			text-decoration: none;
+			outline: 0;
+			color: white;
+			border: none;
+			border-radius: 8px;
+			background-color: #17252A;
+			padding: 8px 16px;
+			box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+			
+		}
+		.but:hover{
+			text-decoration: none;
+			background-color: #FFF;
+			color: black;
+			box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+		}
+		#lgout{
+			position: fixed;
+			bottom: 10px;
+			right: 0px;
+		}/*
+		#lgout:hover{
+			text-decoration: none;
+		}*/
+
+		#allevents{
+			float: left;
+			width: 75%;
+			background-color: #A2D8D5;
+			margin-right: 60px;
+			margin-left: 260px;
+			margin-top: 30px;
+			margin-bottom: 10px;
+		}
+		#titlee{
+			margin-left: 200px;
+		}
+		.ei{
+			background-color: white;
+			text-align: center;
+		}
+		#noim{
+			color: black;
+			vertical-align: middle;
+		}
+		#etitle{
+			margin-left: 20px;
+			float: left;
+			width: 74%;
+			/*border-bottom: 1px solid #17252A;*/
+			padding-bottom: 10px;
+		}
+		#edate{
+			float: left;
+			margin-top: 0px;
+			margin-left: 520px;
+			background-color: #2B7A78;
+			width: 25%;
+			color: white;
+			padding: 10px;
+			border-top-left-radius: 12px;
+			border-bottom-left-radius: 12px;
+
+		}
+		#edesc{
+			margin-left: 20px;
+			float: left;
+			width: 74%;
+			padding: 15px 0px;
+			padding-left: 20px;
+			/*border-bottom: 1px solid #17252A;*/
+		}
+
+		#org{
+			margin-top: 20px;
+			float: left;
+			width: 96%;
+			color: black;
+			padding: 15px 0px;
+			border-top: 1px solid #17252A;
+			border-bottom: 1px solid #17252A;
+			margin-left: 20px;
+		}
+		#org > h5{
+			float: left;
+			margin-left: 20px;
+		}
+		#org > p{
+			float: left;
+			margin-top: 5px;
+		}
+
+		#faccod{
+			margin-top: 0px;
+			float: left;
+			width: 96%;
+			color: black;
+			padding: 15px 0px;
+			border-bottom: 1px solid #17252A;
+			margin-left: 20px;
+		}
+		#faccod > h5{
+			float: left;
+			margin-left: 20px;
+		}
+		#faccod > p{
+			float: left;
+			margin-top: 5px;
+			margin-left: 20px;
+		}
+
+		#conv{
+			margin-top: 0px;
+			float: left;
+			width: 96%;
+			color: black;
+			padding: 15px 0px;
+			border-bottom: 1px solid #17252A;
+			margin-left: 20px;
+		}
+		#conv > h5{
+			float: left;
+			margin-left: 20px;
+		}
+		#conv > p{
+			float: left;
+			margin-top: 5px;
+			margin-left: 20px;
+		}
+
+		#com{
+			float: left;
+			width: 96%;
+			color: black;
+			padding: 15px 0px;
+			border-bottom: 1px solid #17252A;
+			margin-left: 20px;
+		}
+		#com > h5{
+			font-family: Montserrat, Roboto, Arial;
+			float: left;
+			margin-left: 20px;
+		}
+		#com > p{
+			float: left;
+			margin-left: 40%;
+		}
+		#pubda{
+			float: left;
+			bottom: 0;
+			background-color: #17252A;
+			color: white;
+			margin-top: 5px;
+			padding-top: 10px;
+			padding-left: 10px;
+			padding-right: 10px;
+			margin-left: 20px;
+			border-top-right-radius: 12px;
+		}
+		.ei , .eimage{
+			float: left;
+			height: 200px;
+			width: 200px;
+			margin-left: 20px;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<header class="headd">
+		<div>
+			<center><p id="titlee">Upcoming Events</p></center>
+		</div>
+	</header>
+	<nav class="leftbar">
+		<div>
+			<h4 id="hd">DepAct</h4>
+		</div>
+		<div class="lis">
+			<a class="navlinks" href="kjsomaiyacollegeofengineeringandinformationtechnologyteachers-home">
+				<div class="spl">
+					<i class="glyphicon glyphicon-home icc"></i>
+					<span class="sp">Home</span>
+				</div>
+			</a>
+			<a class="navlinks" href="kjsomaiyacollegeofengineeringandinformationtechnologyteachers-allevents">
+				<div class="spl">
+					<i class="glyphicon glyphicon-th icc"></i>
+					<span class="sp">All Events</span>
+				</div>
+			</a>
+			<a class="navlinks" href="kjsomaiyacollegeofengineeringandinformationtechnologyteachers-upcomingevents">
+				<div id="current" class="spl">
+					<i class="glyphicon glyphicon-time icc"></i>
+					<span class="sp">Upcoming Events</span>
+				</div>
+			</a>
+			<a class="navlinks" href="kjsomaiyacollegeofengineeringandinformationtechnologyteachers-finishedevents">
+				<div class="spl">
+					<i class="glyphicon glyphicon-ok icc"></i>
+					<span class="sp">Finished Events</span>
+				</div>
+			</a>
+			<a class="navlinks" href="kjsomaiyacollegeofengineeringandinformationtechnologyteachers-addevent">
+				<div class="spl">
+					<i class="glyphicon glyphicon-plus icc"></i>
+					<span class="sp">Add Event</span>
+				</div>
+			</a>
+			<a class="navlinks" href="kjsomaiyacollegeofengineeringandinformationtechnologyteachers-profile">
+				<div class="spl">
+					<i class="glyphicon glyphicon-user icc"></i>
+					<span class="sp">Profile</span>
+				</div>
+			</a>
+			<a class="navlinks" href="kjsomaiyacollegeofengineeringandinformationtechnologyteachers-help">
+				<div class="spl">
+					<i class="glyphicon glyphicon-question-sign icc"></i>
+					<span class="sp">Help</span>
+				</div>
+			</a>
+		</div>
+	</nav>
+    <center>
+    	<div>
+
+    		{% if user.is_authenticated %}
+    		<div>
+    			{% for event in event_number %}
+    			<div id="allevents">
+	    			{% if event.eventposter %}
+   					<img class="eimage" width="100" src="{{ event.eventposter.url }}">
+   					{% else %}
+   					<div class="ei"><p id="noim"> No Image </p></div>
+					{% endif %}
+    				<div>
+		    			<h1 id="etitle">
+						    {{ event.eventtitle }}
+		    			</h1>
+		    			<h4 id="edate"> {{ event.eventdate }} </h4>
+	    			</div>
+	    			<div>
+	    				<p id="edesc">{{ event.eventdescription }}</p>
+	    			</div><br>
+	    			<div id="org">
+	    				<h5>Organizer :</h5>
+	    				<p>
+	    					{{ event.eventorganizer }}
+	    				</p>
+	    				<h5>Department :</h5>
+	    				<p>
+	    					{{ event.eventdepartment }}
+	    				</p>
+	    			</div><br>
+	    			<div id="faccod">
+	    				<h5>Faculty Co=ordinators :</h5>
+	    				<p>
+	    					{{ event.eventteacher1 }}
+	    				</p>
+	    				<p>
+	    					{{ event.eventteacher2 }}
+	    				</p>
+
+	    				<p>
+	    					{{ event.eventteacher3 }}
+	    				</p>
+	    			</div><br>
+	    			<div id="conv">
+	    				<h5>Conveners :</h5>
+	    				<p>
+	    					{{ event.eventconvener1 }}
+	    				</p>
+	    				<p>
+	    					{{ event.eventconvener2 }}
+	    				</p>
+	    			</div><br>
+	    			<div id="com">
+	    				<h5> Comments :</h5>
+	    				{% if event.eventcomments %}
+   						<em><p>{{ event.eventcomments }}</p></em>
+   						{% else %}
+   						<em><p>No comments</p></em>
+						{% endif %}
+	    			</div><br>
+	    			<div id="pubda">
+	    				<p>Published on : {{ event.pubdate }}</p>
+	    			</div>
+	    			
+	    			
+    			</div>
+    			{% endfor %}
+    		</div>
+		    <div>
+		    	<a href="homelogout" id="lgout" class="but">
+		    		Logout
+		    	</a>
+		    </div>
+    		{% else %}
+    		<h1>Please Login</h1>
+    		<div>
+		    	<a href="kjsomaiyacollegeofengineeringandinformationtechnologyteachers-login" id="lgin" class="but">
+		    		Login
+		    	</a>
+		    </div>
+    		{% endif %}
+    	</div>
+    </center>
+	<!-- <script type="text/javascript">
+		function homeclicked(){
+			window.assign('kjsomaiyacollegeofengineeringandinformationtechnologyteachershome')
+		}
+		function alleventsclicked(){
+			window.assign('kjsomaiyacollegeofengineeringandinformationtechnologyteachersallevents')
+		}
+		function finishedeventsclicked(){
+			window.assign('kjsomaiyacollegeofengineeringandinformationtechnologyteachersfinishedevents')
+		}
+		function addeventclicked(){
+			window.assign('kjsomaiyacollegeofengineeringandinformationtechnologyteachersaddevent')
+		}
+		function profileclicked(){
+			window.assign('kjsomaiyacollegeofengineeringandinformationtechnologyteachersprofile')
+		}
+		function helpclicked(){
+			window.assign('kjsomaiyacollegeofengineeringandinformationtechnologyteachershelp')
+		}
+	</script> -->
+</body>
+</html>
